@@ -1,9 +1,9 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Solution {
+public class HalloweenParty {
 
-    public static void main(String[] args) {
+    public static void HalloweenParty(String[] args) {
         Scanner in = new Scanner(System.in);
         int numberOfTests = in.nextInt();
         int[] tests = new int[numberOfTests];
