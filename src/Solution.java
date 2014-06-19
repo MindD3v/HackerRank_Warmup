@@ -1,24 +1,35 @@
-import java.text.DecimalFormat;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
 public class Solution {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int numberOfTests = in.nextInt();
-        int[] tests = new int[numberOfTests];
-
-        for(int i = 0; i < numberOfTests; i++)
-        {
-            tests[i] = in.nextInt();
+        int t = in.nextInt();
+        for(int i = 0; i < t; i++){
+            System.out.println(Solve(in.nextInt(), in.nextInt(), in.nextInt()));
         }
+    }
 
-        for(int i =0; i < numberOfTests; i ++)
+    private static long Solve(int n, int c, int m){
+        if(n > 2)
         {
-            double test = tests[i];
-            double result = (test - (int)test/2) * (int)(test/2);
-            DecimalFormat format = new DecimalFormat("#");
-            System.out.println(format.format(result));
+            int chocolateBought = n/c;
+            int chocolateWrapper = chocolateBought;
+
+            while(chocolateWrapper > 0 && chocolateWrapper >= m)
+            {
+                int newChocolate = chocolateWrapper / m;
+                chocolateBought += newChocolate;
+                chocolateWrapper -= m * newChocolate;
+                chocolateWrapper = chocolateWrapper + newChocolate;
+            }
+
+            return chocolateBought;
         }
+        return 0;
     }
 }
