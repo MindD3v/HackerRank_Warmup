@@ -1,5 +1,4 @@
-import AlgorithmsPartI.Structures.UnionFind.QuickFindUF;
-import AlgorithmsPartI.Structures.UnionFind.QuickUnionUF;
+import AlgorithmsPartI.UnionFind.QuickUnionUF;
 
 public class Solution {
 
