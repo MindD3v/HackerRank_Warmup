@@ -1,35 +1,22 @@
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+import AlgorithmsPartI.Structures.UnionFind.QuickFindUF;
+import AlgorithmsPartI.Structures.UnionFind.QuickUnionUF;
 
 public class Solution {
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int t = in.nextInt();
-        for(int i = 0; i < t; i++){
-            System.out.println(Solve(in.nextInt(), in.nextInt(), in.nextInt()));
-        }
-    }
+        QuickUnionUF quickUnionUF = new QuickUnionUF(10);
 
-    private static long Solve(int n, int c, int m){
-        if(n > 2)
-        {
-            int chocolateBought = n/c;
-            int chocolateWrapper = chocolateBought;
+        quickUnionUF.union(4, 3);
+        quickUnionUF.union(3, 8);
+        quickUnionUF.union(6, 5);
+        quickUnionUF.union(9, 4);
+        quickUnionUF.union(2, 1);
+        quickUnionUF.union(8, 9);
+        quickUnionUF.union(5, 0);
+        quickUnionUF.union(7, 2);
+        quickUnionUF.union(6, 1);
+        quickUnionUF.union(5, 9);
 
-            while(chocolateWrapper > 0 && chocolateWrapper >= m)
-            {
-                int newChocolate = chocolateWrapper / m;
-                chocolateBought += newChocolate;
-                chocolateWrapper -= m * newChocolate;
-                chocolateWrapper = chocolateWrapper + newChocolate;
-            }
-
-            return chocolateBought;
-        }
-        return 0;
+        System.out.println(quickUnionUF.toString());
     }
 }
