@@ -39,12 +39,18 @@ public class QuickFindUF implements UnionFind {
         return count;
     }
     @Override
-    public String toString()
-    {
+    public String toString() {
         StringBuilder builder = new StringBuilder();
-        for(int i=0;i<array.length;i++)
-            builder.append(array[i]+" ");
+        for(int i = 0; i < array.length;i++)
+        {
+            builder.append(i + " ");
+        }
+        builder.append("\n");
+        for (int i = 0; i < array.length; i++) {
+            builder.append(array[i] + " ");
+        }
+        builder.append("\n");
 
-        return builder.toString().trim();
+        return builder.toString();
     }
 }

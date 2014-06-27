@@ -1,7 +1,5 @@
 package AlgorithmsPartI.UnionFind;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 public class QuickUnionUF implements UnionFind {
 
     private int count;
@@ -17,38 +15,44 @@ public class QuickUnionUF implements UnionFind {
 
     @Override
     public void union(int p, int q) {
-        array[root(p)] = root(q);
+        int rootP = find(p);
+        int rootQ = find(q);
+
+        if(rootP==rootQ) return;
+
+        array[rootP] = rootQ;
     }
 
     @Override
     public int find(int p) {
-        throw new NotImplementedException();
+        if(array[p]==p)
+            return p;
+
+        return find(array[p]);
     }
 
     @Override
     public boolean connected(int p, int q) {
-        return root(p) == root(q);
+        return find(p) == find(q);
     }
 
     @Override
     public int count() {
         return count;
     }
-
-    private int root(int p)
-    {
-        if(array[p]==p)
-            return p;
-
-        return root(array[p]);
-    }
     @Override
-    public String toString()
-    {
+    public String toString() {
         StringBuilder builder = new StringBuilder();
-        for(int i=0;i<array.length;i++)
-            builder.append(array[i]+" ");
+        for(int i = 0; i < array.length;i++)
+        {
+            builder.append(i + " ");
+        }
+        builder.append("\n");
+        for (int i = 0; i < array.length; i++) {
+            builder.append(array[i] + " ");
+        }
+        builder.append("\n");
 
-        return builder.toString().trim();
+        return builder.toString();
     }
 }
